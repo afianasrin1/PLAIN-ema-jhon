@@ -1,16 +1,24 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import { Link, useLoaderData } from "react-router-dom";
+import {
+  addToDb,
+  deleteShoppingCart,
+  getStoredCart,
+} from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 const Shop = () => {
-  const products = useLoaderData();
-  console.log(products);
+  const { products, initialCart } = useLoaderData(); //{ products: products, initialCart: initialCart }
+  // console.log(products);
   //car er state declare
   const [cart, setCart] = useState([]);
+  const clearCart = () => {
+    setCart([]);
+    deleteShoppingCart();
+  };
 
   // ei ta r dorkar nai karon loader use kore hook use korlam
   // const [products, setProducts] = useState([]);
@@ -36,7 +44,7 @@ const Shop = () => {
     setCart(savedCart);
   }, [products]);
   const handleAddToCart = (selectProduct) => {
-    console.log(selectProduct);
+    // console.log(selectProduct);
     let newCart = [];
     const exists = cart.find((product) => product.id === selectProduct.id);
     if (!exists) {
@@ -67,7 +75,11 @@ const Shop = () => {
         {/* cart component create korar age eta kora hoislo 
         <h1>order summary </h1> 
           <p>Selected Items:{cart.length}</p>*/}
-        <Cart cart={cart} />
+        <Cart clearCart={clearCart} cart={cart}>
+          <Link to="orders">
+            <button>review order</button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );
