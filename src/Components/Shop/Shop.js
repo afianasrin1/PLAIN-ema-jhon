@@ -77,7 +77,7 @@ const Shop = () => {
           <p>Selected Items:{cart.length}</p>*/}
         <Cart clearCart={clearCart} cart={cart}>
           <Link to="orders">
-            <button>review order</button>
+            <button>Review order</button>
           </Link>
         </Cart>
       </div>
