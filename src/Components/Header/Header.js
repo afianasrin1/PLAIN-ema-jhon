@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../images/Logo.svg";
 import "./Header.css";
 // import { useAuth } from "../Login/useAuth";
@@ -9,10 +10,10 @@ const Header = () => {
     <div className="header">
       <img src={logo} alt="" />
       <nav>
-        <a href="/shop">Shop</a>
-        <a href="/review">Order Review</a>
-        <a href="/inventory">Inventory</a>
-        <a href="/about">About</a>
+        <Link to="/">Shop</Link>
+        <Link to="/orders">Orders </Link>
+        <Link to="/inventory">Inventory</Link>
+        <Link to="/about">About</Link>
         {/* {auth.user && (
           <span style={{ color: "yellow" }}>Welcome {auth.user.name}</span>
         )}
