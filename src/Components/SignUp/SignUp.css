@@ -1,0 +1,10 @@
+.text-error {
+  color: tomato;
+}
+.btn-logout {
+  margin-left: 10px;
+  color: blue;
+}
+.btn-logout:hover {
+  background: rgba(255, 85, 0, 0.8);
+}

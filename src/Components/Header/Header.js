@@ -1,29 +1,34 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/Logo.svg";
-import "./Header.css";
-// import { useAuth } from "../Login/useAuth";
+import { AuthContext } from "../context/UserContext";
 
+import "./Header.css";
 const Header = () => {
-  // const auth = useAuth();
+  const { user, logOut } = useContext(AuthContext);
   return (
-    <div className="header">
+    <nav className="header">
       <img src={logo} alt="" />
-      <nav>
+      <div>
         <Link to="/">Shop</Link>
         <Link to="/orders">Orders </Link>
         <Link to="/inventory">Inventory</Link>
         <Link to="/about">About</Link>
-        {/* {auth.user && (
-          <span style={{ color: "yellow" }}>Welcome {auth.user.name}</span>
-        )}
-        {auth.user ? (
-          <a href="/login">Sign out</a>
+        {user?.uid ? (
+          // <Link to="/login">LogOut</Link>
+          <button onClick={logOut} className="btn-logout">
+            {" "}
+            LogOut
+          </button>
         ) : (
-          <a href="/login">Sign in</a>
-        )} */}
-      </nav>
-    </div>
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">SignUp</Link>
+          </>
+        )}
+        {/* <span>{user?.email}</span> */}
+      </div>
+    </nav>
   );
 };
 

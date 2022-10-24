@@ -1,11 +1,14 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../context/UserContext";
 
-const h1 = () => {
+const About = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
-      <h1>This About Imad</h1>
+      <p>Email: {user?.email}</p>
     </div>
   );
 };
 
-export default h1;
+export default About;
