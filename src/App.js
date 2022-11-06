@@ -18,7 +18,7 @@ function App() {
       children: [
         {
           path: "/",
-          loader: productsAndCartLoader,
+          // loader: () => fetch("http://localhost:5000/products"),
           element: <Shop />,
         },
         {

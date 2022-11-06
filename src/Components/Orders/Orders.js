@@ -6,7 +6,7 @@ import ReviewItem from "../ReviewItem/ReviewItem";
 import "./Orders.css";
 import { deleteShoppingCart } from "../../utilities/fakedb";
 const Orders = () => {
-  const { products, initialCart } = useLoaderData(); //{ products: products, initialCart: initialCart }
+  const { products, initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
   const clearCart = () => {
     setCart([]);
@@ -14,7 +14,7 @@ const Orders = () => {
   };
 
   const handleRemoveItem = (id) => {
-    const remaining = cart.filter((product) => product.id !== id);
+    const remaining = cart.filter((product) => product._id !== id);
     setCart(remaining);
     // console.log(id);
   };

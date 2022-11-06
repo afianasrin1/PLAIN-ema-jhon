@@ -19,3 +19,17 @@
   background-color: blanchedalmond;
   align-items: start;
 }
+.pagination {
+  margin-left: 200px;
+  margin-bottom: 50px;
+}
+.pagination button {
+  margin-right: 10px;
+}
+.pagination .selected {
+  font-weight: bold;
+  background-color: rgb(255, 175, 47);
+  border: rgb(45, 14, 200);
+  width: 40px;
+  padding: 12px;
+}
